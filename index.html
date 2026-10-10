@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Психолог-консультант Александр Грибанов: 15 пунктов о психологической помощи и правилах работы.">
+<title>Психолог Александр Грибанов</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap">
+<style>
+/* Layout: one reading column (44rem) with a sticky table of contents beside it on wide screens;
+   the contents collapses into a folded list on phones. 15 numbered points, because the text is exactly 15 points. */
+:root {
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --fg: #22313C;
+  --muted: #526675;
+  --line: #C7D6DB;
+  --accent: #19364D;
+  --accent-soft: #EEF3F5;
+  --tile: #C7D6DB;
+  --tile-ink: #2A4458;
+  --display: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --body: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.7;
+  padding-inline: 1rem;
+  padding-block: 2.5rem 4rem;
+}
+a { color: var(--accent); text-underline-offset: 0.2em; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+.page { max-width: 70rem; margin-inline: auto; }
+
+.top { max-width: 44rem; margin-bottom: 2.5rem; }
+.eyebrow { font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0; }
+h1 {
+  color: var(--accent);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  line-height: 1.12;
+  margin: 0.6rem 0 1rem;
+  text-wrap: balance;
+}
+.lede { color: var(--muted); font-size: 1.15rem; max-width: 36rem; margin: 0; }
+
+.layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+@media (min-width: 62rem) {
+  .layout { grid-template-columns: 15rem minmax(0, 44rem); gap: 4rem; }
+  .toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1.5rem); align-self: start; }
+  .toc summary { pointer-events: none; list-style: none; }
+  .toc summary::-webkit-details-marker { display: none; }
+}
+
+.toc { font-size: 0.9375rem; line-height: 1.4; min-width: 0; }
+.toc summary { font-weight: 600; cursor: pointer; padding-block: 0.4rem; }
+.toc ol { margin: 0.5rem 0 0; padding-left: 1.75rem; }
+.toc li { padding-block: 0.25rem; padding-left: 0.25rem; }
+.toc li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--accent); text-decoration: underline; }
+
+main { min-width: 0; }
+.sec {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 1rem;
+}
+.sec:first-child { border-top: 0; padding-top: 0; }
+.n { font-family: var(--display); font-size: 1.1rem; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; padding-top: 0.3rem; }
+h2 { color: var(--accent); font-family: var(--display); font-weight: 600; font-size: 1.5rem; line-height: 1.25; margin: 0 0 1rem; text-wrap: balance; }
+h3 { color: var(--accent); font-family: var(--display); font-weight: 600; font-size: 1.1rem; line-height: 1.3; margin: 1.75rem 0 0.5rem; }
+p { margin: 0 0 1rem; }
+.body > :last-child { margin-bottom: 0; }
+ul, ol { margin: 0 0 1rem; padding-left: 1.25rem; }
+li { margin-bottom: 0.4rem; }
+.steps li::marker { color: var(--accent); font-weight: 600; }
+.steps strong { font-weight: 600; }
+
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0.75rem; margin: 0 0 1.5rem; padding: 0; list-style: none; }
+.fact { background: var(--tile); border-radius: 0.5rem; padding: 0.8rem 0.9rem; margin: 0; }
+.fact b { display: block; font-family: var(--display); font-size: 1.35rem; line-height: 1.25; color: var(--accent); font-weight: 600; }
+.fact span { display: block; font-size: 0.875rem; line-height: 1.4; color: var(--tile-ink); }
+
+.person { background: var(--surface); border: 1px solid var(--line); border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1.25rem; }
+.person .name { font-family: var(--display); font-weight: 600; font-size: 1.4rem; line-height: 1.25; margin: 0; }
+.person .role { color: var(--muted); margin: 0; }
+.who { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+.who > div { min-width: 0; }
+.photo { width: 5.5rem; height: 5.5rem; border-radius: 50%; object-fit: cover; flex: none; background: var(--tile); }
+.label { font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 0.4rem; }
+.person ul { margin-bottom: 0; }
+
+.links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 0; }
+.btn {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.4rem;
+}
+.btn:hover { background: var(--accent-soft); }
+.btn.primary { background: var(--accent); color: #FFFFFF; }
+.btn.primary:hover { background: #24475F; }
+
+.end { margin-top: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9375rem; }
+
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top">
+    <p class="eyebrow">Александр Грибанов · психолог-консультант</p>
+    <h1>15 пунктов о психологической помощи</h1>
+    <p class="lede">Они помогут узнать больше о психологической помощи и о сессиях конкретно со мной.</p>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Содержание">
+      <details id="toc" open>
+        <summary>Содержание</summary>
+        <ol>
+          <li><a href="#s1">Психологическая помощь</a></li>
+          <li><a href="#s2">Как происходит работа</a></li>
+          <li><a href="#s3">Когнитивно-поведенческая терапия</a></li>
+          <li><a href="#s4">Подготовка</a></li>
+          <li><a href="#s5">Направление и ход работы</a></li>
+          <li><a href="#s6">Ваша активность</a></li>
+          <li><a href="#s7">Конфиденциальность</a></li>
+          <li><a href="#s8">Вопросы психолога</a></li>
+          <li><a href="#s9">Записи</a></li>
+          <li><a href="#s10">С чем работает психолог</a></li>
+          <li><a href="#s11">Терапия индивидуальна</a></li>
+          <li><a href="#s12">Если вы прервали встречи</a></li>
+          <li><a href="#s13">Терапия не бесконечна</a></li>
+          <li><a href="#s14">О работе со мной</a></li>
+          <li><a href="#s15">Правила работы</a></li>
+        </ol>
+      </details>
+    </nav>
+
+    <main>
+      <section class="sec" id="s1">
+        <div class="n">1</div>
+        <div class="body">
+          <h2>Психологическая помощь — это</h2>
+          <p>Поддержка и коррекция от специалиста, который помогает справиться с трудными эмоциями, переживаниями или жизненными ситуациями. Психолог помогает разобраться в себе, найти решения проблем и чувствовать себя лучше.</p>
+          <p>На сессиях психолог помогает установить причины трудностей и подобрать решение.</p>
+          <p>К психологу обращаются в разных случаях: жизненные трудности, тревога, депрессивное состояние, сложности в отношениях, на работе, сложно принимать решения, навязчивые мысли.</p>
+          <p>Психолог также работает с психическими расстройствами (при должной квалификации).</p>
+          <p>Психолог ответственен за применение навыков и методов терапии в соответствии с проблемой клиента, а не за факт решения проблемы (клиент платит за сами встречи и интервенции, а не за конкретный результат).</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s2">
+        <div class="n">2</div>
+        <div class="body">
+          <h2>Как происходит работа с психологом?</h2>
+          <ol class="steps">
+            <li><strong>Начало:</strong> уточняется проблема клиента, запрос, собирается анамнез.</li>
+            <li><strong>Диагностика:</strong> оценка психологического состояния и особенностей клиента.</li>
+            <li><strong>Терапия:</strong> психолог предлагает подходящие интервенции (новый способ мышления, самонаблюдение, помогающие упражнения, поведенческий эксперимент — согласно методологии подхода КПТ).</li>
+            <li><strong>Обучение:</strong> помощь с отработкой навыков самостоятельной помощи.</li>
+            <li><strong>Поддерживающие встречи:</strong> разбор сложностей.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="sec" id="s3">
+        <div class="n">3</div>
+        <div class="body">
+          <h2>Когнитивно-поведенческая терапия (КПТ)</h2>
+          <p>Помогает исследовать существующие способы мышления, следующие за ними чувства, реакции, действия. Помогает вырабатывать помогающие (рациональные) способы взаимодействия или реакции в разных ситуациях.</p>
+          <p>КПТ можно применять в жизненных трудностях, сложностях взаимодействия с другими, проблемах с отношением к себе. Помогает справиться с тревогой и депрессией (позволяет корректировать тревожные и депрессивные расстройства); помогает справляться с зависимостями.</p>
+          <p>КПТ — наиболее популярный и эффективный метод психотерапии. Высокая эффективность доказана большим количеством исследований.</p>
+          <p>Подробнее <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3584580/" target="_blank" rel="noopener noreferrer">в докладе</a> (на английском языке).</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s4">
+        <div class="n">4</div>
+        <div class="body">
+          <h2>Подготовка</h2>
+          <p>Для очной встречи ничего не требуется, а для онлайн важна хорошая связь и чтобы никто не отвлекал. Если вы находитесь в движении, за рулем или в общественном месте, то эффективность терапии будет ниже.</p>
+          <p>Иногда в работе важно что-то записать или выполнить письменное упражнение. Хорошо, если у вас рядом окажется ручка и лист.</p>
+          <p>Относительно темы вашего обращения подготовки заранее не требуется — просто расскажите, что вас беспокоит (так, как вы это замечаете в жизни).</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s5">
+        <div class="n">5</div>
+        <div class="body">
+          <h2>Направление и ход работы обсуждаются совместно</h2>
+          <p>Каждая встреча имеет повестку (что будем делать сегодня?).</p>
+          <p>Психолог предлагает модель КПТ для проблемы, но круг вопросов и направление работы определяется тем, что беспокоит клиента.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s6">
+        <div class="n">6</div>
+        <div class="body">
+          <h2>Ваша активность</h2>
+          <p>Будет полезна для нашей работы. Делитесь тем, что вас беспокоит, и задавайте вопросы. Рассказывайте, как вы относитесь к заданиям и ходу терапии. Даже если вам что-то непонятно или неприятно.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s7">
+        <div class="n">7</div>
+        <div class="body">
+          <h2>Всё, что происходит, конфиденциально</h2>
+          <p>Психолог не раскрывает факт, тему, детали обращения и сессий.</p>
+          <p>Для клиента таких требований нет (на его усмотрение).</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s8">
+        <div class="n">8</div>
+        <div class="body">
+          <h2>Психолог задает некоторые вопросы для прояснения ситуации</h2>
+          <p>Возможно, что-то покажется неуместным — клиенту рекомендуется сообщать об этом. Психолог иногда прерывает рассказ клиента, чтобы уточнить некоторые детали или вернуть к теме встречи. Это помогает сделать встречи более эффективными.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s9">
+        <div class="n">9</div>
+        <div class="body">
+          <h2>Обычно психолог делает записи</h2>
+          <p>В обезличенной форме помечает мысли, эмоции, некоторые идеи. Некоторые записи психолог и клиент делают вместе — это важно для эффективной работы. Клиент может попросить не делать записи, психолог согласится.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s10">
+        <div class="n">10</div>
+        <div class="body">
+          <h2>Психолог — это специалист, который работает</h2>
+          <p>С психическими процессами, свойствами и состояниями. Это могут быть мысли, убеждения, эмоции, поведение, поступки. То, что беспокоит клиента.</p>
+          <p>Психолог не компетентен медицинской практике, в жизненной истории, ситуации и решениях клиента. Психолог не может сам вынести решение по данным вопросам, но поможет выработать ваше решение.</p>
+          <p>Соответственно, каждая тема и интервенция согласуется с клиентом.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s11">
+        <div class="n">11</div>
+        <div class="body">
+          <h2>Терапия индивидуальна</h2>
+          <p>Психолог работает непосредственно с человеком, который находится на сессии. Нет возможности вовлекать третьих лиц в терапию без их согласия или влиять на них опосредованно.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s12">
+        <div class="n">12</div>
+        <div class="body">
+          <h2>Если вы прервали встречи</h2>
+          <p>То всегда можете вернуться. Иногда возникают внешние условия или внутренняя необходимость, требующие прервать встречи. Рекомендуется предварительно обсудить паузу или окончание сессий с терапевтом. Это помогает выработать план действий по проблеме на период без сессий.</p>
+          <p>Даже если вы «пропали», это не обнуляет предыдущую работу. Вы можете написать, когда вновь позволяют условия, и продолжить работу.</p>
+          <p>Также нормальным считается возвращение в терапию, если у вас возник новый запрос и нужен поддерживающий формат сессий (профилактика рецидивов).</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s13">
+        <div class="n">13</div>
+        <div class="body">
+          <h2>Терапия не бесконечна</h2>
+          <p>Цель терапии — помочь клиенту решить текущие проблемы и выработать навыки самостоятельного решения проблем в будущем. Окончание терапии происходит, когда клиента больше не беспокоит проблема, и в случае рецидива у него достаточно ресурсов, чтобы с ней справиться.</p>
+          <p>В подходе КПТ это формирование у клиента навыков выявления убеждений, их реструктуризации и изменения активности.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s14">
+        <div class="n">14</div>
+        <div class="body">
+          <h2>Теперь о работе конкретно со мной</h2>
+          <div class="person">
+            <div class="who">
+              <img class="photo" src="photo.jpg" width="88" height="88" alt="Александр Грибанов">
+              <div>
+                <p class="name">Грибанов Александр</p>
+                <p class="role">психолог-консультант</p>
+              </div>
+            </div>
+            <p class="label">Обучение</p>
+            <ul>
+              <li>Бакалавриат «психодиагностика и консультирование», 4 года</li>
+              <li>Магистратура «психология развития», 2 года</li>
+              <li>Базовый курс когнитивно-поведенческой терапии (КПТ), 275 часов</li>
+            </ul>
+            <div class="links">
+              <a class="btn" href="https://drive.google.com/drive/folders/1qHBTBy9lD1AQvZM3G50bwmdAw_IP__Xo?usp=sharing" target="_blank" rel="noopener noreferrer">Документы об образовании</a>
+              <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScWMlVVZ1njPIaHToYusSv-Mh641L6D6jUfo8uAnPR_oQAITw/viewanalytics" target="_blank" rel="noopener noreferrer">Отзывы о моей работе</a>
+            </div>
+          </div>
+          <p>КПТ — это мой основной подход. Я помогаю в сложных жизненных ситуациях, в отношениях с другими и собой. Помогаю справиться с тяжелыми переживаниями, тревогой. В зону моей компетенции входит работа с тревожными, депрессивными расстройствами и зависимостями.</p>
+          <p>Я работаю только со взрослыми в рамках индивидуальной терапии (не беру в работу пары и семьи).</p>
+          <p>Я работаю на русском языке.</p>
+        </div>
+      </section>
+
+      <section class="sec" id="s15">
+        <div class="n">15</div>
+        <div class="body">
+          <h2>Правила работы со мной</h2>
+          <ul class="facts">
+            <li class="fact"><b>55 минут</b><span>длительность сессии</span></li>
+            <li class="fact"><b>Пн–Пт, 10–20</b><span>по московскому времени</span></li>
+            <li class="fact"><b>1 раз в неделю</b><span>рекомендуемая частота</span></li>
+          </ul>
+
+          <h3>Расписание</h3>
+          <p>Я работаю по будним дням с 10 до 20 часов (по Москве). Сессии длятся по 55 минут. Можно написать мне в любое время, подберем день встречи.</p>
+          <p>Для продуктивной работы я рекомендую график — 1 раз в неделю. Острые состояния — чаще (2–3 раза в неделю). При этом для меня нормально, если мы по договоренности меняем график, делаем пропуски или встречаемся ситуативно.</p>
+          <p>Между сессиями можно связываться со мной, задавать вопросы — я отвечаю по возможности.</p>
+          <p>Если ваша ситуация не позволяет спрогнозировать время сессии заранее, то напишите мне день в день. Я сообщу, есть ли доступное время на сегодня.</p>
+
+          <h3>Оплата</h3>
+          <p>Я работаю по предоплате за день.</p>
+          <p>При оплате в рублях я рассчитываю стоимость исходя из курса в сервисах международных переводов в день оплаты. Вы сообщаете мне о намерении оплатить сессию, я сообщаю точную сумму в рублях.</p>
+          <p>По вашему запросу я могу предоставить коммерческий инвойс.</p>
+
+          <h3>Отмена и перенос</h3>
+          <p>Отмена сессии с возвратом средств возможна также за день (если остается меньше времени, то отмена без возврата).</p>
+          <p>Перенос сессии возможен не менее чем за 4 часа до назначенного времени (если остается меньше, то перенос невозможен, но я могу подождать, если вы опоздаете на сессию). Перенесенная сессия отменяется без возврата средств.</p>
+
+          <h3>Записаться</h3>
+          <p>Напишите мне в Telegram (@aezakmi773), подберем день встречи.</p>
+          <p><a class="btn primary" href="https://t.me/aezakmi773" target="_blank" rel="noopener noreferrer">Написать в Telegram</a></p>        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script>
+  // On wide screens the contents list is always open; on phones it starts folded.
+  (function () {
+    var d = document.getElementById('toc');
+    var mq = window.matchMedia('(min-width: 62rem)');
+    function sync() { d.open = mq.matches; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener('change', sync);
+  })();
+</script>
+</body>
+</html>
